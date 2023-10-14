@@ -12,7 +12,7 @@ function setup() {
   asciiDiv = createDiv();
 }
 
-let isMirrored = false;
+let isMirrored = false;                                 // Determine if the resultant feed would be Mirrored or Not (isMirrored == true means Feed is Mirrored)
 function choose(mirror, i, j, width) {
   let a = ((width - i - 1) + j * width) * 4;
   let b = (i + j * width) * 4;
@@ -21,6 +21,20 @@ function choose(mirror, i, j, width) {
   else
     return b;
 }
+
+const slider = document.getElementById("myRange");
+slider.addEventListener("input", function () {
+  const sliderValue = slider.value;
+
+  if (sliderValue > density.length) {
+    const numSpacesToAdd = sliderValue - density.length; // If sliderValue is greater than the current density length, add spaces
+    density = density + " ".repeat(numSpacesToAdd);
+  } 
+  else if (sliderValue < density.length) {
+    const numSpacesToRemove = density.length - sliderValue; // If sliderValue is less than the current density length, remove spaces
+    density = density.slice(0, -numSpacesToRemove);
+  }
+});
 
 const mirrorButton = document.getElementById("mirrorButton");
 mirrorButton.addEventListener("click", function () {
