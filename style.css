@@ -5,6 +5,11 @@ html, body {
   font-size: 15pt;
 }
 
+#mirrorButton {
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
 canvas {
   display: block;
 }
