@@ -24,7 +24,7 @@ function choose(mirror, i, j, width) {
 
 const slider = document.getElementById("myRange");
 slider.addEventListener("input", function () {
-  const sliderValue = slider.value;
+  let sliderValue = slider.value;
 
   if (sliderValue > density.length) {
     const numSpacesToAdd = sliderValue - density.length; // If sliderValue is greater than the current density length, add spaces
